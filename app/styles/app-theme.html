@@ -229,7 +229,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   /* mobile-large-landscape */
   @media all and (min-width: 481px) and (orientation: landscape) { }
   /* tablet-small-landscape */
-  @media all and (min-width: 600px) and (max-width: 960px) and (orientation: landscape) { }
+  @media all and (min-width: 600px) and (max-width: 960px) and (orientation: landscape) {
+  
+ }
+ @media all and (min-width: 601px){
+    iron-pages:not([style-scope]):not(.style-scope) {
+        padding: 0px 62px;
+    }
+  }
   /* tablet-large-landscape */
   @media all and (min-width: 961px) and (orientation: landscape) { }
   /* tablet-small */

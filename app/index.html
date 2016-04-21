@@ -65,8 +65,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <!-- endbuild -->
 
   <template is="dom-bind" id="app">
-
-    <paper-drawer-panel id="paperDrawerPanel">
+    
+    <paper-drawer-panel id="paperDrawerPanel" force-narrow >
       <!-- Drawer Scroll Header Panel -->
       <paper-scroll-header-panel drawer fixed>
 
@@ -76,7 +76,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </paper-toolbar>
 
         <!-- Drawer Content -->
-        <paper-menu class="app-menu" attr-for-selected="data-route" selected="[[route]]">
+        <paper-menu class="app-menu" attr-for-selected="data-route" selected="[[route]]" >
           <a data-route="home" href="{{baseUrl}}">
             <iron-icon icon="home"></iron-icon>
             <span>Home</span>
@@ -95,7 +95,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </paper-scroll-header-panel>
 
       <!-- Main Area -->
-      <paper-scroll-header-panel main id="headerPanelMain" condenses keep-condensed-header>
+      <paper-scroll-header-panel main id="headerPanelMain" condenses keep-condensed-header fixed>
         <!-- Main Toolbar -->
         <paper-toolbar id="mainToolbar" class="tall">
           <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
@@ -113,7 +113,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <!-- Application sub title -->
           <div class="bottom bottom-container">
-            <div class="bottom-title">The future of the web today</div>
+            <div >Polymer Starter Kit</div>
           </div>
         </paper-toolbar>
 
@@ -188,12 +188,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </paper-toast>
 
     <!-- Uncomment next block to enable Service Worker support (1/2) -->
-    <!--
+
     <paper-toast id="caching-complete"
                  duration="6000"
                  text="Caching complete! This app will work offline.">
     </paper-toast>
-
+  <!--<platinum-sw-register skip-waiting
+                            clients-claim
+                            reload-on-install
+                            state="{{state}}">
+        <platinum-sw-cache default-cache-strategy="networkFirst"
+                           precache="{{precacheList}}"></platinum-sw-cache>
+      </platinum-sw-register>-->
     <platinum-sw-register auto-register
                           clients-claim
                           skip-waiting
@@ -203,13 +209,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                          cache-config-file="cache-config.json">
       </platinum-sw-cache>
     </platinum-sw-register>
-    -->
+
 
   </template>
 
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
   <!-- endbuild-->
+  
 </body>
 
 </html>
