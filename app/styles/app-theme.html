@@ -210,7 +210,44 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
   }
+ paper-button.custom {
+    --paper-button-ink-color: var(--paper-pink-a200);
+    /* These could also be individually defined for each of the
+      specific css classes, but we'll just do it once as an example */
+    --paper-button-flat-keyboard-focus: {
+      background-color: var(--paper-pink-a200);
+      color: white !important;
+    };
+    --paper-button-raised-keyboard-focus: {
+      background-color: var(--paper-pink-a200) !important;
+      color: white !important;
+    };
+  }
+  paper-button.custom:hover {
+    background-color: var(--paper-indigo-100);
+  }
+  paper-button.pink {
+    color: var(--paper-pink-a200);
 
+  }
+  paper-button.indigo {
+    background-color: var(--paper-indigo-500);
+    color: white;
+    --paper-button-raised-keyboard-focus: {
+      background-color: var(--paper-pink-a200) !important;
+      color: white !important;
+    };
+  }
+  paper-button.green {
+    background-color: var(--paper-green-500);
+    color: white;
+  }
+  paper-button.green[active] {
+    background-color: var(--paper-red-500);
+  }
+  paper-button.disabled {
+    color: white;
+  }
   /* Material Design Adaptive Breakpoints */
   /*
     Below you'll find CSS media queries based on the breakpoint guidance
@@ -234,8 +271,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
  }
  @media all and (min-width: 601px){
     iron-pages:not([style-scope]):not(.style-scope) {
-        padding: 0px 62px;
+        padding: 0px 0px;
     }
+  
+
   }
   /* tablet-large-landscape */
   @media all and (min-width: 961px) and (orientation: landscape) { }
@@ -244,7 +283,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   /* tablet-large */
   @media all and (min-width: 601px) and (max-width: 840px) and (orientation : portrait) { }
   /* desktop-x-small-landscape */
-  @media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) { }
+  @media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) {
+   
+  }
   /* desktop-x-small */
   @media all and (min-width: 0) and (max-width: 480px) and (max-aspect-ratio: 4/3) { }
   /* desktop-small-landscape */
@@ -252,9 +293,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   /* desktop-small */
   @media all and (min-width: 481px) and (max-width: 840px) and (max-aspect-ratio: 4/3) { }
   /* desktop-medium-landscape */
-  @media all and (min-width: 841px) and (max-width: 1280px) and (orientation: landscape) { }
+  @media all and (min-width: 841px) and (max-width: 1280px) and (orientation: landscape) {
+   paper-button {
+      width: 50%;
+    }
+  .pull-right {
+      text-align: right;
+    }
+    .train-pic {
+      float:left;
+      width: 20%;
+    }
+    .train-info {
+      float:left;
+      width: 59%;
+    }
+    .train-price {
+      float: left;
+      width:20%;
+      text-align: right;
+    }
+   }
   /* desktop-medium */
-  @media all and (min-width: 841px) and (max-width: 1280px) and (max-aspect-ratio: 4/3) { }
+  @media all and (min-width: 841px) and (max-width: 1280px) and (max-aspect-ratio: 4/3) { 
+  }
   /* desktop-large */
   @media all and (min-width: 1281px) and (max-width: 1600px) { }
   /* desktop-xlarge */

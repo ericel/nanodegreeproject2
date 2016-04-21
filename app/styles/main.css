@@ -24,3 +24,48 @@ body {
 .paper-toolbar-0.tall {
     height: calc(64px * 1); 
 }
+
+paper-button {
+	width: 100%;
+}
+
+.header-search{
+	width:100%;
+	background: #268DC6;
+	background: url('train.png');
+	background-size: 100% 100%;
+	position: relative;
+}
+
+
+.overlay-div {
+	position:relative;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:rgba(0, 0, 0, 0.85);
+    background: url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC) repeat scroll transparent\9;
+    z-index:9999;
+    padding: 20px 0;
+}
+.header-search h1{
+	margin-left: auto;
+	margin-right: auto;
+	color: #ffffff;
+	text-align: center;
+}
+.header-search form{
+	width:90%;
+	margin-left: auto;
+	margin-right: auto;
+	background: #fcfcfc;
+	padding: 15px 5px;
+	border-radius: 5px;
+}
+img {
+	width:100%;
+}
+.clearfix{
+	clear:both;
+}
