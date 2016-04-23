@@ -113,7 +113,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <!-- Application sub title -->
           <div class="bottom bottom-container">
-             <div class="app-name">Polymer Starter Kit</div>
+             <div class="app-name">Transapp</div>
           </div>
         </paper-toolbar>
 
@@ -126,21 +126,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <div class="overlay-div">
               <h1 class="page-title">FIND YOUR TRAIN </h1>
             <form>
-            <paper-input label=" Start Sation" type="text" id="fromStation" autofocus>
+            <paper-input label=" Start Sation" type="text" id="fromStation" list="slist" autofocus>
                   <iron-icon prefix icon="room"></iron-icon>
                   <paper-icon-button suffix onclick="clearInputfrom()" icon="clear" alt="clear" title="clear">
                   </paper-icon-button>
                 </paper-input>
-                <paper-input label=" Stop Station" id="toStation" >
+                <paper-input label=" Stop Station" id="toStation" list="slist">
                    <iron-icon prefix icon="room"></iron-icon>
                   <paper-icon-button suffix onclick="clearInput()" icon="clear" alt="clear" title="clear">
                   </paper-icon-button>
                 </paper-input>
+                 <datalist id="slist">
+                     
+                 </datalist>
 
                 <div class="pull-right"><paper-button raised class="custom indigo">Find A Train</paper-button></div>
               </form>
               </div>
               </div>
+              <div id="results"></div>
               <paper-material elevation="1" class="train">
               <div>
                 <div class="train-pic">

@@ -35,13 +35,40 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   app.addEventListener('dom-change', function() {
     console.log('Our app is ready to rock!');
   });
-  
+
+
   // See https://github.com/Polymer/polymer/issues/1381
-  window.addEventListener('WebComponentsReady', function() {
-    // imports are loaded and elements have been registered
-    //document.querySelector('platinum-sw-register').register();
-    
-  });
+window.addEventListener('WebComponentsReady', function() {
+
+function converttxttoArray(filename) {
+  var reader = (window.XMLHttpRequest != null) ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+  reader.open("GET", filename, false);
+  reader.send();
+  return reader.responseText.split(/(\r\n|\n)/);
+}
+// Get Train Stops to datalist
+    var stop_list = converttxttoArray("../data/stops.txt");
+    var re = /,/;
+    var headers = stop_list.shift().split(re);
+    var index = headers.indexOf("stop_name");
+    var res = stop_list.map(function(val, key) {
+      return val.split(re)[index];
+    }).filter(Boolean);
+    console.log(res);
+    //var stopArray = res.split(',');
+    var str = '';
+    var i;
+    for (i = 0; i < res.length; i++) {
+       str += '<option value="'+res[i]+'" />';
+    }
+    var s_list=document.getElementById("slist");
+    s_list.innerHTML = str;
+  
+
+
+});
+
+
 
   // Main area's paper-scroll-header-panel custom condensing transformation of
   // the appName in the middle-container and the bottom title in the bottom-container.
