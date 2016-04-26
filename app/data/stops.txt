@@ -1,96 +1,196 @@
-stop_id,stop_code,stop_name,stop_lat,stop_lon,zone_id,stop_url,location_type,parent_station,platform_code,wheelchair_boarding
-70011,70011,San Francisco Caltrain,37.77639,-122.394992,1,http://www.caltrain.com/stations/sanfranciscostation.html,0,ctsf,NB,1
-70012,70012,San Francisco Caltrain,37.776348,-122.394935,1,http://www.caltrain.com/stations/sanfranciscostation.html,0,ctsf,SB,1
-70021,70021,22nd St Caltrain,37.757599,-122.39188,1,http://www.caltrain.com/stations/22ndstreetstation.html,0,ct22,NB,2
-70022,70022,22nd St Caltrain,37.757583,-122.392404,1,http://www.caltrain.com/stations/22ndstreetstation.html,0,ct22,SB,2
-70031,70031,Bayshore Caltrain,37.709537,-122.401586,1,http://www.caltrain.com/stations/bayshorestation.html,0,ctba,NB,1
-70032,70032,Bayshore Caltrain,37.709544,-122.40198,1,http://www.caltrain.com/stations/bayshorestation.html,0,ctba,SB,1
-70041,70041,So. San Francisco Caltrain Station,37.65589,-122.40487,1,http://www.caltrain.com/stations/southsanfranciscostation.html,0,ctssf,NB,2
-70042,70042,So. San Francisco Caltrain Station,37.655946,-122.405018,1,http://www.caltrain.com/stations/southsanfranciscostation.html,0,ctssf,SB,2
-70051,70051,San Bruno Caltrain,37.631128,-122.411968,1,http://www.caltrain.com/stations/sanbrunostation.html,0,ctsb,NB,1
-70052,70052,San Bruno Caltrain,37.631108,-122.412076,1,http://www.caltrain.com/stations/sanbrunostation.html,0,ctsb,SB,1
-70061,70061,Millbrae Caltrain,37.59988,-122.386647,2,http://www.caltrain.com/stations/millbraetransitcenter.html,0,ctmi,NB,1
-70062,70062,Millbrae Caltrain,37.599797,-122.386832,2,http://www.caltrain.com/stations/millbraetransitcenter.html,0,ctmi,SB,1
-70071,70071,Broadway Caltrain,37.58764,-122.36265,2,http://www.caltrain.com/stations/broadwaystation.html,0,ctbr,NB,2
-70072,70072,Broadway Caltrain,37.587552,-122.362708,2,http://www.caltrain.com/stations/broadwaystation.html,0,ctbr,SB,2
-70081,70081,Burlingame Caltrain,37.580197,-122.3449,2,http://www.caltrain.com/stations/burlingamestation.html,0,ctbu,NB,1
-70082,70082,Burlingame Caltrain,37.580186,-122.345075,2,http://www.caltrain.com/stations/burlingamestation.html,0,ctbu,SB,1
-70091,70091,San Mateo Caltrain,37.568087,-122.323851,2,http://www.caltrain.com/stations/sanmateostation.html,0,ctsmat,NB,1
-70092,70092,San Mateo Caltrain,37.568294,-122.324092,2,http://www.caltrain.com/stations/sanmateostation.html,0,ctsmat,SB,1
-70101,70101,Hayward Park Caltrain,37.552938,-122.309338,2,http://www.caltrain.com/stations/haywardparkstation.html,0,ctha,NB,1
-70102,70102,Hayward Park Caltrain,37.552994,-122.309608,2,http://www.caltrain.com/stations/haywardparkstation.html,0,ctha,SB,1
-70111,70111,Hillsdale Caltrain,37.537868,-122.297349,2,http://www.caltrain.com/stations/hillsdalestation.html,0,cthi,NB,1
-70112,70112,Hillsdale Caltrain,37.537814,-122.297461,2,http://www.caltrain.com/stations/hillsdalestation.html,0,cthi,SB,1
-70121,70121,Belmont Caltrain,37.52089,-122.275738,2,http://www.caltrain.com/stations/belmontstation.html,0,ctbe,NB,1
-70122,70122,Belmont Caltrain,37.520844,-122.275816,2,http://www.caltrain.com/stations/belmontstation.html,0,ctbe,SB,1
-70131,70131,San Carlos Caltrain,37.50805,-122.26015,2,http://www.caltrain.com/stations/sancarlosstation.html,0,ctsc,NB,1
-70132,70132,San Carlos Caltrain,37.507933,-122.260266,2,http://www.caltrain.com/stations/sancarlosstation.html,0,ctsc,SB,1
-70141,70141,Redwood City Caltrain,37.486159,-122.231936,2,http://www.caltrain.com/stations/redwoodcitystation.html,0,ctrwc,NB,1
-70142,70142,Redwood City Caltrain,37.486101,-122.232,2,http://www.caltrain.com/stations/redwoodcitystation.html,0,ctrwc,SB,1
-70151,70151,Atherton Caltrain,37.464645,-122.19779,3,http://www.caltrain.com/stations/athertonstation.html,0,ctat,NB,2
-70152,70152,Atherton Caltrain,37.464584,-122.197869,3,http://www.caltrain.com/stations/athertonstation.html,0,ctat,SB,2
-70161,70161,Menlo Park Caltrain,37.454856,-122.182297,3,http://www.caltrain.com/stations/menloparkstation.html,0,ctmp,NB,1
-70162,70162,Menlo Park Caltrain,37.454745,-122.182405,3,http://www.caltrain.com/stations/menloparkstation.html,0,ctmp,SB,1
-70171,70171,Palo Alto Caltrain,37.443475,-122.164614,3,http://www.caltrain.com/stations/paloaltostation.html,0,ctpa,NB,1
-70172,70172,Palo Alto Caltrain,37.443405,-122.164697,3,http://www.caltrain.com/stations/paloaltostation.html,0,ctpa,SB,1
-70191,70191,California Ave Caltrain,37.429365,-122.141927,3,http://www.caltrain.com/stations/californiaavenuestation.html,0,ctca,NB,1
-70192,70192,California Ave Caltrain,37.429333,-122.141978,3,http://www.caltrain.com/stations/californiaavenuestation.html,0,ctca,SB,1
-70201,70201,San Antonio Caltrain,37.407323,-122.107069,3,http://www.caltrain.com/stations/sanantoniostation.html,0,ctsa,NB,1
-70202,70202,San Antonio Caltrain,37.407277,-122.107125,3,http://www.caltrain.com/stations/sanantoniostation.html,0,ctsa,SB,1
-70211,70211,Mt View Caltrain,37.394459,-122.075956,3,http://www.caltrain.com/stations/mountainviewstation.html,0,ctmv,NB,1
-70212,70212,Mt View Caltrain,37.394402,-122.075994,3,http://www.caltrain.com/stations/mountainviewstation.html,0,ctmv,SB,1
-70221,70221,Sunnyvale Caltrain,37.378916,-122.031372,3,http://www.caltrain.com/stations/sunnyvalestation.html,0,ctsu,NB,1
-70222,70222,Sunnyvale Caltrain,37.378789,-122.031423,3,http://www.caltrain.com/stations/sunnyvalestation.html,0,ctsu,SB,1
-70231,70231,Lawrence Caltrain,37.370598,-121.997114,4,http://www.caltrain.com/stations/lawrencestation.html,0,ctla,NB,1
-70232,70232,Lawrence Caltrain,37.370484,-121.997135,4,http://www.caltrain.com/stations/lawrencestation.html,0,ctla,SB,1
-70241,70241,Santa Clara Caltrain,37.353238,-121.93608,4,http://www.caltrain.com/stations/santaclarastation.html,0,ctscl,NB,1
-70242,70242,Santa Clara Caltrain,37.353189,-121.936135,4,http://www.caltrain.com/stations/santaclarastation.html,0,ctscl,SB,1
-70251,70251,College Park Caltrain,37.342384,-121.9146,4,http://www.caltrain.com/stations/collegeparkstation.html,0,ctco,NB,2
-70252,70252,College Park Caltrain,37.342338,-121.914677,4,http://www.caltrain.com/stations/collegeparkstation.html,0,ctco,SB,2
-70261,70261,San Jose Diridon Caltrain,37.329239,-121.903011,4,http://www.caltrain.com/stations/sanjosediridonstation.html,0,ctsj,NB,1
-70262,70262,San Jose Diridon Caltrain,37.329231,-121.903173,4,http://www.caltrain.com/stations/sanjosediridonstation.html,0,ctsj,SB,1
-70271,70271,Tamien Caltrain,37.31174,-121.883721,4,http://www.caltrain.com/stations/tamienstation.html,0,ctta,NB,1
-70272,70272,Tamien Caltrain,37.31175,-121.883999,4,http://www.caltrain.com/stations/tamienstation.html,0,ctta,SB,1
-70281,70281,Capitol Caltrain,37.284102,-121.841955,5,http://www.caltrain.com/stations/capitolstation.html,0,ctcap,NB,1
-70282,70282,Capitol Caltrain,37.284062,-121.842037,5,http://www.caltrain.com/stations/capitolstation.html,0,ctcap,SB,1
-70291,70291,Blossom Hill Caltrain,37.252422,-121.797643,5,http://www.caltrain.com/stations/blossomhillstation.html,0,ctbl,NB,1
-70292,70292,Blossom Hill Caltrain,37.252379,-121.797683,5,http://www.caltrain.com/stations/blossomhillstation.html,0,ctbl,SB,1
-70301,70301,Morgan Hill Caltrain,37.129363,-121.650244,6,http://www.caltrain.com/stations/morganhillstation.html,0,ctmh,NB,1
-70302,70302,Morgan Hill Caltrain,37.129321,-121.650304,6,http://www.caltrain.com/stations/morganhillstation.html,0,ctmh,SB,1
-70311,70311,San Martin Caltrain,37.085225,-121.610049,6,http://www.caltrain.com/stations/sanmartinstation.html,0,ctsmar,NB,1
-70312,70312,San Martin Caltrain,37.086653,-121.610936,6,http://www.caltrain.com/stations/sanmartinstation.html,0,ctsmar,SB,1
-70321,70321,Gilroy Caltrain,37.003538,-121.566088,6,http://www.caltrain.com/stations/gilroystation.html,0,ctgi,NB,1
-70322,70322,Gilroy Caltrain,37.003485,-121.566225,6,http://www.caltrain.com/stations/gilroystation.html,0,ctgi,SB,1
-777402,777402,San Jose Caltrain Station,37.330196,-121.901985,4,http://www.caltrain.com/stations/sanjosediridonstation.html,0,ctsj,,1
-777403,777403,Tamien Caltrain Station,37.311638,-121.883403,4,http://www.caltrain.com/stations/tamienstation.html,0,ctta,,1
-ctsf,,San Francisco Caltrain,37.776439,-122.394323,,http://www.caltrain.com/stations/sanfranciscostation.html,1,,,1
-ct22,,22nd St Caltrain,37.757674,-122.392636,,http://www.caltrain.com/stations/22ndstreetstation.html,1,,,2
-ctba,,Bayshore Caltrain,37.709544,-122.401318,,http://www.caltrain.com/stations/bayshorestation.html,1,,,1
-ctssf,,So. San Francisco Caltrain Station,37.655852,-122.405429,,http://www.caltrain.com/stations/southsanfranciscostation.html,1,,,2
-ctsb,,San Bruno Caltrain,37.631106,-122.412018,,http://www.caltrain.com/stations/sanbrunostation.html,1,,,1
-ctmi,,Millbrae Caltrain,37.600006,-122.386534,,http://www.caltrain.com/stations/millbraetransitcenter.html,1,,,1
-ctbr,,Broadway Caltrain,37.587466,-122.363233,,http://www.caltrain.com/stations/broadwaystation.html,1,,,2
-ctbu,,Burlingame Caltrain,37.579719,-122.345266,,http://www.caltrain.com/stations/burlingamestation.html,1,,,1
-ctsmat,,San Mateo Caltrain,37.568209,-122.323933,,http://www.caltrain.com/stations/sanmateostation.html,1,,,1
-ctha,,Hayward Park Caltrain,37.552346,-122.308916,,http://www.caltrain.com/stations/haywardparkstation.html,1,,,1
-cthi,,Hillsdale Caltrain,37.537503,-122.298001,,http://www.caltrain.com/stations/hillsdalestation.html,1,,,1
-ctbe,,Belmont Caltrain,37.520504,-122.276075,,http://www.caltrain.com/stations/belmontstation.html,1,,,1
-ctsc,,San Carlos Caltrain,37.507361,-122.260365,,http://www.caltrain.com/stations/sancarlosstation.html,1,,,1
-ctrwc,,Redwood City Caltrain,37.485412,-122.231957,,http://www.caltrain.com/stations/redwoodcitystation.html,1,,,1
-ctat,,Atherton Caltrain,37.464349,-122.198106,,http://www.caltrain.com/stations/athertonstation.html,1,,,2
-ctmp,,Menlo Park Caltrain,37.454604,-122.182518,,http://www.caltrain.com/stations/menloparkstation.html,1,,,1
-ctpa,,Palo Alto Caltrain,37.44307,-122.1649,,http://www.caltrain.com/stations/paloaltostation.html,1,,,1
-ctca,,California Ave Caltrain,37.428835,-122.142703,,http://www.caltrain.com/stations/californiaavenuestation.html,1,,,1
-ctsa,,San Antonio Caltrain,37.407157,-122.107231,,http://www.caltrain.com/stations/sanantoniostation.html,1,,,1
-ctmv,,Mt View Caltrain,37.393879,-122.076327,,http://www.caltrain.com/stations/mountainviewstation.html,1,,,1
-ctsu,,Sunnyvale Caltrain,37.378427,-122.030742,,http://www.caltrain.com/stations/sunnyvalestation.html,1,,,1
-ctla,,Lawrence Caltrain,37.370815,-121.997258,,http://www.caltrain.com/stations/lawrencestation.html,1,,,1
-ctscl,,Santa Clara Caltrain,37.352915,-121.936376,,http://www.caltrain.com/stations/santaclarastation.html,1,,,1
-ctco,,College Park Caltrain,37.34217,-121.914998,,http://www.caltrain.com/stations/collegeparkstation.html,1,,,2
-ctsj,,San Jose Diridon Caltrain,37.329392,-121.902181,,http://www.caltrain.com/stations/sanjosediridonstation.html,1,,,1
-ctta,,Tamien Caltrain,37.31164,-121.8839,,http://www.caltrain.com/stations/tamienstation.html,1,,,1
-ctcap,,Capitol Caltrain,37.284359,-121.841589,,http://www.caltrain.com/stations/capitolstation.html,1,,,1
-ctbl,,Blossom Hill Caltrain,37.252801,-121.797369,,http://www.caltrain.com/stations/blossomhillstation.html,1,,,1
-ctmh,,Morgan Hill Caltrain,37.129081,-121.650721,,http://www.caltrain.com/stations/morganhillstation.html,1,,,1
-ctsmar,,San Martin Caltrain,37.085775,-121.610809,,http://www.caltrain.com/stations/sanmartinstation.html,1,,,1
-ctgi,,Gilroy Caltrain,37.003606,-121.566497,,http://www.caltrain.com/stations/gilroystation.html,1,,,1
+stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type,parent_station,wheelchair_boarding,stop_timezone
+177,,7 Eleven,Stop located on sidewalk in front of 7-Eleven,39.655791,-78.925178,,,0,,,
+160,,"Active Network, Inc",Stop located in business park front loop.,39.64136,-78.94262,,,0,,,
+29,,Adams Family Funeral Home,On Decatur St.,39.655876,-78.759955,,,0,,,
+18,,Allegany College of Maryland,Front loop of college near flag poles and fountain,39.651533,-78.729864,,,0,,,
+16,,Allegany County Health Department,Front Doors of Allegany County Health Department,39.647778,-78.731074,,,0,,,
+73,,Allegany Detention Center,Stop along side of McMullen Hwy,39.599509,-78.824705,,,0,,,
+161,,Annapolis Hall,Stop located along University Dr,39.651487,-78.935024,,,0,,,
+174,,Appalachian Lab,Stop located along Midlothian Rd,39.64228,-78.93906,,,0,,,
+25,,Baltimore Ave & Marion St,,39.657399,-78.751617,,,0,,,
+23,,Baltimore Ave & Shades Ln,,39.657596,-78.75015,,,0,,,
+24,,Baltimore Ave & Shades Ln,Please stand on the side of the street opposite Shades Ln for pick up.,39.657482,-78.750163,,,0,,,
+26,,Baltimore Ave & Yale St,,39.657503,-78.751743,,,0,,,
+93,,Banneker Gardens,Stop  on opposite side of Frederick St from Banneker Garden,39.657015,-78.759377,,,0,,,
+98,,Bedford Rd & Acre Ln (VFD),,39.70507,-78.71361,,,0,,,
+106,,Bedford Rd & Azalea Ln,,39.70004,-78.71932,,,0,,,
+103,,Bedford Rd & Growdenvale Dr,,39.69383,-78.72568,,,0,,,
+105,,Bedford Rd & Meders Ln,,39.69993,-78.71928,,,0,,,
+192,,Bedford St & Centre St,,39.65322,-78.76244,,,0,,,
+190,,Bedford St & Conrad Ave,,39.6647,-78.75523,,,0,,,
+188,,Bedford St & Edward Ave,,39.675346,-78.743208,,,0,,,
+189,,Bedford St & Forster Ave,Stop on sidewalk opposite to Forester St,39.67057,-78.75032,,,0,,,
+191,,Bedford St & Marietta St,,39.659912,-78.758868,,,0,,,
+86,,Blind Industries and Services,Stop located on corner of Walnut St and Paca St,39.649296,-78.771372,,,0,,,
+173,,Bowery St & College Ave,,39.65134,-78.92731,,,0,,,
+159,,Bowery St & Paul St,Bus shelter near Bowery St and Paul St intersection,39.65375,-78.92521,,,0,,,
+78,,Bowling Greene Fire Department,Stop along side of McMullen Hwy,39.62478,-78.80569,,,0,,,
+56,,Braddock Square (Gabriel's),In Braddock Square,39.633024,-78.841187,,,0,,,
+170,,Broadway & Main St,,39.657294,-78.928222,,,0,,,
+169,,Broadway General Store,Opposite Frostburg Police Station,39.656284,-78.92967,,,0,,,
+15,,Brook Building,Side building to the Allegany County Health Department,39.646509,-78.73029,,,0,,,
+59,,Buffalo Wild Wings,previously ponderosa,39.629756,-78.837847,,,0,,,
+43,,Bunnie's Restaurant,,39.657168,-78.808137,,,0,,,
+124,,Burger King,Stop located along Industrial Blvd,39.629944,-78.746465,,,0,,,
+128,,Cascades,Stop located near Fourth St entrance of Cascades,39.633055,-78.754889,,,0,,,
+32,,Centre St & Baltimore St,Bus Shelter on the Corner of Baltimore St & Centre St,39.651533,-78.761104,,,0,,,
+36,,Centre St & Franklin St,Opposite High Point Furniture.,39.658952,-78.773154,,,0,,,
+35,,Centre St & Valley St,Near Pharmacare of Cumberland,39.657528,-78.769281,,,0,,,
+34,,Centre St United Methodist Church,Centre St before Viaduct and Queen City Dr intersection.,39.655516,-78.765133,,,0,,,
+3,,Chick-fil-A,Corner of Park St and Williams St.,39.64828,-78.757277,,,0,,,
+84,,Children's Medical Group,Stop located on sidewalk on Greene St,39.650607,-78.773949,,,0,,,
+118,,Circle K,Stop located along Oldtown Rd,39.637139,-78.748753,,,0,,,
+151,,Clarysville Motel,Stop located along National Hwy- not in motel parking lot,39.64303,-78.88783,,,0,,,
+165,,College Ave & Maple St,Stop located on the corner of Maple St and College Ave near Highway Pizza,39.653401,-78.930008,,,0,,,
+167,,College Ave & Water St,,39.655361,-78.932272,,,0,,,
+166,,College Ave Lot,Stop located near Lowndes Hall at bus shelter,39.652972,-78.93074,,,0,,,
+163,,Cordts PE Center Shelter,"Stop located in loop of Hitchens, Pullen and the PE Center",39.648902,-78.933179,,,0,,,
+61,,Country Club Mall Theaters,,39.627197,-78.833816,,,0,,,
+21,,Country Club Rd & Amber Dr,,39.657216,-78.739209,,,0,,,
+70,,Cresaptown Eagles,On sidewalk in front of Cresaptown Eagles near Sheetz,39.594338,-78.831225,,,0,,,
+72,,Cresaptown Post Office,On McMullen Hwy in front of Post Office,39.596266,-78.82736,,,0,,,
+2,,Cumberland Post Office,On sidewalk in front of Post Office,39.650264,-78.757021,,,0,,,
+123,,Dairy Queen,Stop located along Industrial Blvd,39.62937,-78.744128,,,0,,,
+27,,Decatur St & Baltimore Ave,Corner of Decatur and Baltimore Ave,39.654025,-78.757161,,,0,,,
+30,,Decatur St & Fulton St,,39.654884,-78.758457,,,0,,,
+53,,Denny's,Stand on sidewalk visible to National Hwy,39.636842,-78.838191,,,0,,,
+193,,Dingle Braddock Rd & Greene St,,39.64926,-78.78412,,,,,,
+8,,Doctor's Offices at Old Memorial,Across street from Doctor's offices at the old Memorial Hospital,39.643419,-78.750579,,,0,,,
+83,,Dollar General on Greene St,Stop located on sidewalk on Greene St,39.651324,-78.779365,,,0,,,
+60,,Econo Lodge,Stop along entrance to Country Club Mall,39.628513,-78.837692,,,0,,,
+162,,Edgewood Commons,Stop located at front entrance,39.64624,-78.94029,,,0,,,
+143,,Elder St & Virginia Ave,,39.628387,-78.767445,,,0,,,
+142,,Ella St & Elder St,,39.627118,-78.765245,,,0,,,
+131,,First St & South St,,39.637044,-78.757475,,,0,,,
+155,,Food Lion,Frostburg stop,39.65148,-78.90921,,,0,,,
+39,,Four Tea Herb Shoppe,,39.668471,-78.794881,,,0,,,
+40,,Fratelli's,,39.662029,-78.804231,,,0,,,
+99,,Frederick St & Forster Ave,,39.669734,-78.748621,,,0,,,
+91,,Frederick St & Mechanic St,"Stop at 1 Frederick St, Social Security, Social Services Building",39.652259,-78.763481,,,0,,,
+95,,Frederick St & Victoria Ln,,39.660645,-78.756096,,,0,,,
+100,,Frederick St Apartments,Efficiencies on Frederick St before Sheetz,39.676332,-78.739673,,,0,,,
+31,,Front St,"Stand close to track, the bus is going to turn right to cross tracks to Queen City Dr.",39.652418,-78.758547,,,0,,,
+156,,Frostburg Plaza (ACS),,39.64711,-78.91031,,,0,,,
+37,,Fruit Bowl,Please stand visible to US 40 for pickup,39.665725,-78.78158,,,0,,,
+67,,Garden City,Stop along Winchester Rd at Garden City entrance,39.60076,-78.83575,,,0,,,
+183,,Georges Creek Ambulance Service,,39.565449,-78.980088,,,0,,,
+182,,Georges Creek Elementary,,39.57869,-78.9637,,,0,,,
+28,,Gilchrist Center (Opp YMCA),"Opposite Gilchrist Center, where Baltimore Ave merges with Henderson Ave",39.65316,-78.757904,,,0,,,
+82,,Gold Dingle,Corner of Greene St and Fayette St,39.649422,-78.783758,,,0,,,
+13,,Golden Living Center,On the corner of Winifred Rd and Williams Rd,39.646504,-78.743907,,,0,,,
+80,,Goodwill Industries,,39.630767,-78.799999,,,0,,,
+81,,Green Dingle,Corner of Greene St and Gephart Dr,39.649069,-78.784085,,,0,,,
+90,,Greene St & Johnson St,,39.649885,-78.76715,,,0,,,
+92,,Greene St & Lee St,Sidewalk on Lee St near Sheetz on Greene St,39.650112,-78.770277,,,0,,,
+11,,Greenway Ave & Williams St,,39.645377,-78.749404,,,0,,,
+164,,Guild Center Shelter,Stop located in Guild Center parking lot,39.65116,-78.92935,,,0,,,
+4,,Hill Top Dr & Louisiana Ave,On the corner of Hilltop Dr & Louisiana Ave,39.644401,-78.753449,,,0,,,
+94,,Independent Dialysis,,39.663753,-78.753457,,,0,,,
+127,,Industrial Blvd & Wempe Dr,,39.631549,-78.756837,,,0,,,
+33,,JFK Apartments,Bus stop is at International Beauty School,39.653962,-78.763385,,,0,,,
+6,,Johnson Heights Medical Building,On sidewalk on Kent Ave in front of Johnson Heights Medical Building,39.641078,-78.751899,,,0,,,
+52,,KFC,Stand on sidewalk visible to National Hwy,39.637025,-78.836919,,,0,,,
+58,,Kohl's,In Braddock Square,39.631954,-78.839746,,,0,,,
+179,,LanaLu Apartments,Stop on the corner of Douglas Ave & MD 36,39.566512,-78.98005,,,0,,,
+47,,LaVale Library,Stand on sidewalk visible to National Hwy,39.649013,-78.817986,,,0,,,
+148,,LaVale Plaza (Goodwill),Stop located near Goodwill Store,39.63849,-78.84854,,,0,,,
+41,,LaVale Post Office,,39.661003,-78.804937,,,0,,,
+55,,LaVale Sheetz,previously the bowler,39.63598,-78.844676,,,0,,,
+102,,Lindy's Restaurant,,39.68536,-78.73246,,,0,,,
+146,,Lions Ball Field,,39.6381,-78.82505,,,0,,,
+145,,Lions Center for Rehabilitation,Stop located in front of building's front entrance,39.65656,-78.79466,,,0,,,
+54,,Long John Silver's,Stand on sidewalk visible to National Hwy,39.636961,-78.844738,,,0,,,
+5,,Louisiana Ave,Louisiana Ave before turning onto Kent Ave,39.642119,-78.753514,,,0,,,
+51,,Lowe's & Burton's Plaza,Stand on sidewalk visible to National Hwy,39.637941,-78.83318,,,0,,,
+158,,Main St & Grant St (Corner Market),,39.65417,-78.92106,,,0,,,
+172,,Main St & Sleeman St,Previously Hanger but shop closed,39.65232,-78.91643,,,0,,,
+157,,Main St & Victoria Ln,,39.65197,-78.91513,,,0,,,
+108,,Martin's Cumberland,"Stop Located near UPS store, make sure you are visible to driver",39.64629,-78.75813,,,0,,,
+57,,Martin's LaVale,In Braddock Square,39.632545,-78.840822,,,0,,,
+112,,Maryland Ave & Spring St,,39.646336,-78.755541,,,0,,,
+110,,Maryland Ave & Virginia Ave,,39.639977,-78.761565,,,0,,,
+79,,McMullen Hwy & Milnor Ave,Stop along side of McMullen Hwy,39.63047,-78.80407,,,0,,,
+71,,McMullen Hwy & Oakwood St,Warners restaurant Permanently Closed,39.595784,-78.828358,,,0,,,
+76,,McMullen Hwy & Orchid Ave,Stop along side of McMullen Hwy,39.61123,-78.81092,,,0,,,
+1000,,MD 36 & Douglas Ave,Added Stop: On MD 36,39.566755,-78.980009,,,,,,
+185,,MD 36 & Sugar Maple Ln,,39.52284,-79.01759,,,0,,,
+176,,Meshach Frost Village Bus Shelter,Stop at bus shelter on State St,39.653779,-78.936267,,,0,,,
+178,,Midland MD 36 & Big Lane Ave,,39.58985,-78.95047,,,0,,,
+104,,Moon Glo Skating Rink,,39.69787,-78.72208,,,0,,,
+129,,Mountain View Apartments,Bus picks up from Mountain View's front awning.,39.633055,-78.752827,,,0,,,
+65,,MVA,Opposite MVA.,39.61483,-78.83962,,,0,,,
+195,,N. Mechanic St & Valley St.,Added 4/4/16,39.656968,-78.770708,,,,,,
+46,,National Hwy & LaVale St,,39.651886,-78.814928,,,0,,,
+45,,National Hwy & Long Dr,,39.65461,-78.812152,,,0,,,
+44,,National Hwy & Old Cash Valley Rd,,39.655805,-78.810894,,,0,,,
+38,,National Hwy & Old Mount Savage Rd,"Corner of National Hwy & Old Mount Savage Rd, opposite Jiffy Lube.",39.669503,-78.792958,,,0,,,
+154,,National Hwy & Old National Pike,,39.64954,-78.89406,,,0,,,
+153,,National Hwy & Parkersburg Rd,,39.65268,-78.89683,,,0,,,
+107,,Naves Cross Rd & Shades Ln,Near Western Maryland Recovery,39.67744,-78.73479,,,0,,,
+96,,Naves Cross Rd (Sheetz),Stop Located on side of Bedford St,39.678162,-78.736903,,,0,,,
+122,,Naylor's True Value,Stop located along Industrial Blvd,39.628841,-78.742557,,,0,,,
+74,,North Branch Correctional Institution,Stop along side of McMullen Hwy,39.6038,-78.82178,,,0,,,
+113,,Oldtown Rd & Grand Ave,,39.638595,-78.759575,,,0,,,
+132,,Oldtown Rd & Grand Ave,Stop located on St Mary's side of Oldtown Road,39.638691,-78.759912,,,0,,,
+115,,Oldtown Rd & Louisiana Ave,Stop located opposite of Intersection before Wempe Dr,39.639101,-78.7549,,,0,,,
+116,,Oldtown Rd & Maple St,,39.637422,-78.749286,,,0,,,
+111,,Oldtown Rd & Maryland Ave,,39.639921,-78.761434,,,0,,,
+114,,Oldtown Rd & South St,,39.639008,-78.757041,,,0,,,
+117,,Oldtown Rd & Utah Ave (Brad's Oldtown Rd Pharmacy),,39.636457,-78.747596,,,0,,,
+152,,Opposite Clarysville Motel,Stop located along National Hwy opposite motel,39.64325,-78.88773,,,0,,,
+49,,Opposite D'Atri's Restaurant,Opposite to D'Atri's Restaurant,39.639527,-78.829425,,,0,,,
+134,,Opposite HRDC,Stop located on opposite side of Virginia Ave from HRDC,39.637271,-78.7623,,,0,,,
+147,,Opposite Lions Ball Field,,39.63798,-78.82494,,,0,,,
+121,,Opposite Oldtowne Manor,Stop Located opposite to entrance of Oldtowne Manor,39.633805,-78.744045,,,0,,,
+150,,Opposite Red Hill Plaza (Cumberland Treatment Center),Stop located along National Hwy in front of 84 Lumber,39.64012,-78.85974,,,0,,,
+101,,Opposite Western Maryland Recovery,Bus Stop located opposite to Western Maryland Recovery,39.68251,-78.73438,,,0,,,
+119,,Oscar's Restaurant,,39.636185,-78.747157,,,0,,,
+171,,Palace Theater,,39.656817,-78.927589,,,0,,,
+109,,Patrick's Pub,Stop located opposite of Patrick's Pub on Putnam St,39.642532,-78.759948,,,0,,,
+48,,Peds After Five,Stand on sidewalk visible to National Hwy,39.644947,-78.82206,,,0,,,
+141,,Potomac St & Ella St,,39.624817,-78.767389,,,0,,,
+140,,Potomac St & Virginia Ave,,39.625718,-78.769183,,,0,,,
+85,,Pyzano's,Stop located on sidewalk on Greene St,39.650938,-78.780971,,,0,,,
+42,,Queen City Business Systems,,39.658277,-78.807034,,,0,,,
+89,,Queen City Towers,Stop located on Lee St side of Queen City Towers,39.649317,-78.770409,,,0,,,
+149,,Red Hill Plaza (Cumberland Treatment Center),Stop located along National Hwy- not in plaza,39.6403,-78.85962,,,0,,,
+7,,Ridgewood Ave & Brookfield Ave,On corner of Ridgewood Ave & Brookfield Ave going toward Williams Rd,39.641424,-78.750709,,,0,,,
+10,,Ridgewood Ave & Williams St,,39.645148,-78.750532,,,0,,,
+1,,Rose's,Main store in Queen City Plaza. Wait for bus outside.,39.65299,-78.760406,,,0,,,
+130,,Second St & Memorial Ave (Jane Fraizer/ Archway Station),Stop is located on the corner of Second St and Memorial Ave,39.635222,-78.754525,,,0,,,
+144,,Seton Dr & Bishop Walsh Dr (ADR),Stop located on corner near Advance Diagnostic Radiology,39.65109,-78.79804,,,0,,,
+77,,Shooters,Stop along side of McMullen Hwy,39.612054,-78.805838,,,0,,,
+126,,South Cumberland Marketplace (Save-A-Lot),Please request stop to the driver when you pay your fare or call in the office for pick up.,39.631047,-78.749557,,,0,,,
+125,,South Cumberland Pharmacy,Stop located along Industrial Blvd,39.630217,-78.748626,,,0,,,
+50,,State Police Barracks,,39.639101,-78.830482,,,0,,,
+168,,State St & Broadway,,39.652817,-78.935429,,,0,,,
+12,,The Imaging Center,In front of the Imaging Center on Williams St,39.64644,-78.744441,,,0,,,
+20,,Thomas B Finan Center,"Near cottages 7&8, bus does loop around facility.",39.656712,-78.735148,,,0,,,
+66,,Tradewinds,Stop along Winchester Rd at Tradewinds entrance,39.60299,-78.83566,,,0,,,
+88,,Tri-State Community Health,Please request stop to the driver when you pay your fare or call in the office for pick up.,39.644496,-78.778844,,,0,,,
+14,,Urology Associates,At Urology Associates on side of Williams Rd. Please request stop to the driver when you pay your fare or call in the office for pick up.,39.64092,-78.73359,,,0,,,
+135,,Virginia Ave & Fourth St,,39.634551,-78.763802,,,0,,,
+137,,Virginia Ave & Industrial Blvd (Rite Aid),Stop located on Virginia Ave sidewalk in front of Rite Aid,39.633621,-78.764355,,,0,,,
+136,,Virginia Ave & Industrial Blvd (Sheetz),Stop located on sidewalk near Sheetz,39.634045,-78.764183,,,0,,,
+139,,Virginia Ave & Offutt St (CSX),,39.629083,-78.767051,,,0,,,
+138,,Virginia Ave & Offutt St (opp CSX),opp side of CSX,39.629145,-78.767209,,,0,,,
+133,,Virginia Ave HRDC,,39.636941,-78.762615,,,0,,,
+63,,Walmart Grocery Entrance,,39.625559,-78.83564,,,0,,,
+62,,Walmart Main Entrance,,39.624802,-78.835763,,,0,,,
+9,,Warwick Ave & Ridgewood Ave,Corner of Warwick Ave and Ridgewood Ave,39.644224,-78.750539,,,0,,,
+175,,Water St & Linden St,,39.655105,-78.934018,,,0,,,
+64,,WEPCO Federal Credit Union,Stand visible to Winchester Road,39.624501,-78.839856,,,0,,,
+75,,Western Correctional Institute,Stop along side of McMullen Hwy,39.60567,-78.82059,,,0,,,
+97,,Western Maryland Recovery,Bus Stops at Western Maryland Recovery on Bedford Rd,39.68252,-78.7342,,,0,,,
+17,,Western Maryland Regional Medical Center,"Main entrance of hospital, please be visible to the driver.",39.64808,-78.73303,,,0,,,
+186,,Westernport Bus Stop,Opposite Boals Funeral Service,39.4836,-79.04492,,,0,,,
+187,,Westernport McDonalds,,39.480576,-79.039842,,,0,,,
+180,,Westernport Senior Center,Stop across the street from Westernport Senior Center,39.484396,-79.045373,,,0,,,
+184,,Westmar Middle School,Stop pick up is on the way to Westernport,39.56031,-78.98749,,,0,,,
+120,,White Oaks Plaza (Big Lots),,39.630434,-78.74345,,,0,,,
+19,,Willowbrook Rd & Country Club Rd,,39.653083,-78.739,,,0,,,
+22,,Willowbrook Rd & Pine Ave,,39.655353,-78.746188,,,0,,,
+68,,Winchester Rd & Fir Tree Ln,On Winchester Rd,39.59612,-78.83456,,,0,,,
+69,,Winchester Rd & McMullen Hwy,On McMullen Hwy,39.593091,-78.833682,,,0,,,
+87,,YMCA on Kelly Rd,Kelly Rd. Please request stop to the driver when you pay your fare or call in the office for pick up.,39.64524,-78.778337,,,0,,,
+196,,Valley Plaza,added stop 4/4/16,39.668806,-78.793943,,,,,,

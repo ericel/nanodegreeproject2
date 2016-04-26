@@ -1,4 +1,8 @@
 service_id,monday,tuesday,wednesday,thursday,friday,saturday,sunday,start_date,end_date
-CT-16APR-Caltrain-Weekday-01,1,1,1,1,1,0,0,20160404,20190331
-CT-16APR-Caltrain-Saturday-02,0,0,0,0,0,1,0,20140329,20190331
-CT-16APR-Caltrain-Sunday-02,0,0,0,0,0,0,1,20140323,20190331
+mtwtf,1,1,1,1,1,0,0,20150904,20180101
+fsusat,0,0,0,0,0,1,0,20160125,20160519
+tuesfri,0,1,0,0,1,0,0,20150904,20180101
+fsu,1,1,1,1,1,0,0,20160125,20160519
+nonfsu,1,1,1,1,1,0,0,20160519,20160829
+fsufall,1,1,1,1,1,0,0,20160829,20161219
+nonfsuwinter,1,1,1,1,1,0,0,20161219,20170130
