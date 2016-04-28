@@ -93,7 +93,7 @@ window.addEventListener('WebComponentsReady', function() {
       console.error("Failed!", error);
     });
 
-    /*get('../data/trips.txt').then(function(response) {
+    /*get('../data/routes.txt').then(function(response) {
       //console.log("Success!", response.split(/(\r\n|\n)/));
       var trips_list = response.split(/(\r\n|\n)/);
       if(Array.isArray(trips_list)) {
@@ -101,64 +101,43 @@ window.addEventListener('WebComponentsReady', function() {
       } else {
         console.log('Not An Array')
       }
+      
       var re = /,/;
       var headers = trips_list.shift().split(re);
-      var route_id = headers.indexOf("route_id");
-      var service_id = headers.indexOf("service_id");
-      var trip_id = headers.indexOf("trip_id");
-      var trip_headsign = headers.indexOf("trip_headsign");
       var mainArray = trips_list.map(function(val, key) {
         return val.split(re);
       }).filter(Boolean);
-    
-      var trip_id = headers.indexOf("trip_id");
-      var tripid = trips_list.map(function(val, key) {
-        return val.split(re)[trip_id];
-      }).filter(Boolean);
-
-       var service_id = headers.indexOf("service_id");
-      var serviceid = trips_list.map(function(val, key) {
-        return val.split(re)[service_id];
-      }).filter(Boolean);
-
-      var route_id = headers.indexOf("route_id");
-      var routeid = trips_list.map(function(val, key) {
-        return val.split(re)[route_id];
-      }).filter(Boolean);
-
-
+      console.log(JSON.stringify(trips_list, null, 4));
        var tripstr = '';
         var i;
         for (i = 0; i < mainArray.length; i++) {
-           tripstr += '<div class="tripper"><b>RID:</b> <em>'+routeid[i]+'</div>';
+          // tripstr += '<div class="tripper"><b>RID:</b> <em>'+ss+'</div>';
         }
 
         tripResults.innerHTML = tripstr;
         //console.log(tripstr);
     }, function(error) {
       console.error("Failed!", error);
-    });
- */
+    });*/
+   var stoptimesArray = [];
 
 
-   function doStuff(data) {
+   function doRoutes(data) {
       var tripstr = '';
-        //Data is usable her
-       // console.log(data);
-       for (var prop in data) {
-        if(data.hasOwnProperty( prop ) ) {
-          console.log("obj." + prop + " = " + data[prop]);
-          console.log(data.route_id);
-        } 
-      }
+      var routes = '{ "routes": '+JSON.stringify(data, null, 4)+' }';
+      var obj = JSON.parse(routes);
+    console.log(obj);
+     var i;
+    var out = "";
 
-      
-
-      
-            tripResults.innerHTML = tripstr;
+    for(i = 0;i<obj.routes.length;i++) {
+        out +=  obj.routes[i].route_long_name;
+    }
+    //tripResults.innerHTML = out; 
+            
     }
 
-    function parseData(url, callBack) {
+    function parseRoutes(url, callBack) {
         Papa.parse(url, {
             download: true,
             dynamicTyping: true,
@@ -169,10 +148,112 @@ window.addEventListener('WebComponentsReady', function() {
         });
     }
 
-    parseData("../data/routes.txt", doStuff);
- 
-    
+    parseRoutes("../data/routes.txt", doRoutes);
 
+     function doTrips(data) {
+      var tripstr = '';
+      var trips = '{ "trips": '+JSON.stringify(data, null, 4)+' }';
+      var obj = JSON.parse(trips);
+  
+
+     var i;
+    var out = "";
+
+    for(i = 0;i<obj.trips.length;i++) {
+        out +=  obj.trips[i].trip_id;
+    }
+    //tripResults.innerHTML = out; 
+      
+    }
+
+    function parseTrips(url, callBack) {
+        Papa.parse(url, {
+            download: true,
+            dynamicTyping: true,
+            header: true,
+            complete: function(results) {
+
+                callBack(results.data);
+
+            }
+        });
+    }
+
+    parseTrips("../data/trips.txt", doTrips);
+
+    function doStopTimes(data) {
+      var tripstr = '';
+      var stoptimes = '{ "stoptimes": '+JSON.stringify(data, null, 4)+' }';
+      //console.log(data);
+
+      var obj = JSON.parse(stoptimes);
+
+
+    
+     var i;
+    var out = "";
+    /*<paper-material elevation="1" class="train"><div><div class="train-pic">
+                   <iron-image alt="The train logo." src="./images/1.jpg"></iron-image>
+                </div>
+                <div class="train-info">
+                   <h1>This is another train.</h1>
+                   <p>Redistributions of source code must retain the above copyright
+                notice, this list of conditions and the following disclaimer.</p>
+                   <span><iron-icon icon="schedule"></iron-icon> 2015-01-02T11:42:13</span>
+                    ~ 
+                   <span><iron-icon icon="schedule"></iron-icon> 2015-01-02T11:42:13</span>
+                </div>
+                 <div class="train-price">
+                    <div>
+                       Price
+                       $ 20
+                    </div>
+                    <paper-button raised class="custom green">Book</paper-button>
+                 </div>
+                 <div class="clearfix"></div>
+                 </div>
+              </paper-material>
+    */
+    for(i = 0;i<20;i++) {
+      if(obj.stoptimes[i].arrival_time != '' && obj.stoptimes[i].departure_time != ''){
+        var stopID = obj.stoptimes[i].stop_id;
+        var DepTime = obj.stoptimes[i].departure_time;
+        var ArrivTime = obj.stoptimes[i].arrival_time;
+        var stopHeadsign = obj.stoptimes[i].stop_headsign;
+        out +=  obj.stoptimes[i].stop_headsign;
+        out +='<paper-material elevation="1" class="train"><div><div class="train-pic">';
+        out +='<iron-image alt="The train logo." src="./images/1.jpg"></iron-image></div><div class="train-info">';
+        out +='<h1>'+obj.stoptimes[i].stop_id+'</h1>';
+        out +='<p>Trip Description</p>';
+        out +='<span><iron-icon icon="schedule"></iron-icon> '+obj.stoptimes[i].departure_time+'</span>';
+        out +=' ~ <span><iron-icon icon="schedule"></iron-icon> '+obj.stoptimes[i].arrival_time+'</span></div>';
+        out +='<div class="train-price"><div> Fare $20</div>';
+        out +='<paper-button raised class="custom green">Book</paper-button></div>';
+        out +='<div class="clearfix"></div> </div> </paper-material>';
+        
+      }
+    }
+    tripResults.innerHTML = out; 
+            
+    }
+
+    function parseStopTimes(url, callBack) {
+        Papa.parse(url, {
+            download: true,
+            dynamicTyping: true,
+            header: true,
+            complete: function(results) {
+              stoptimesArray.push(results);
+              callBack(results.data);
+              //console.log(stoptimesArray); 
+              console.log(results.data.slice(0));
+            }
+        });
+    }
+
+    parseStopTimes("../data/stop_times.txt", doStopTimes);
+
+    
 
    //IndexedDB
    var dbPromise = idb.open('tester', 1, function(upgradeDb) {
@@ -187,6 +268,7 @@ window.addEventListener('WebComponentsReady', function() {
     return keyValStore.get('age');
    }).then( function(val) {
     console.log('The value of "age" is: ', val);
+
    });
 
    // Add another value
