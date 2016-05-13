@@ -70,7 +70,6 @@ function get(url) {
   // See https://github.com/Polymer/polymer/issues/1381
 window.addEventListener('WebComponentsReady', function() {
      var tripResults = document.querySelector('#results');
-    
     // Get Train Stops to datalist
     get('../data/stops.txt').then(function(response) {
       //console.log("Success!", response.split(/(\r\n|\n)/));
@@ -93,6 +92,8 @@ window.addEventListener('WebComponentsReady', function() {
     }, function(error) {
       console.error("Failed!", error);
     });
+
+
 /*function doRoutes(data) {
       var tripstr = '';
       var routes = '{ "routes": '+JSON.stringify(data, null, 4)+' }';
@@ -313,8 +314,130 @@ function doStops(data) {
         });
     }
     parseStopTimes("../data/stop_times.txt", doStopTimes);
+
+    SELECT t.*, st1.*, st2.*
+ FROM trips t, stop_times st1, stop_times st2
+ WHERE st1.trip_id = t.trip_id
+ AND st2.trip_id = t.trip_id
+ AND st1.stop_id = '6665'
+ AND st2.stop_id IN ('6670', '101484')
+ AND t.service_id IN ('12', '874', '4304', '7003')
+ AND st1.departure_time >= '13:00:00'
+ AND st1.pickup_type = 0
+ AND st2.drop_off_type = 0
+ AND st1.departure_time < st2.arrival_time
+ ORDER BY st1.departure_time;
+
+ SELECT * FROM stop_times
+ WHERE stop_id = '6665'
+ AND departure_time >= '13:00:00'
+ AND pickup_type = 0
+ ORDER BY departure_time;
     */
     // get data
+    
+    var arrayTID = [];
+    var someStation = ['70011', '70012','70261', '70262'],
+        anostation = ['70261', '70262'],
+        tID,
+        i;
+        someStation.forEach(
+            function(item){
+               var fb = new Firebase("https://transappx.firebaseio.com/");
+                fb.child('stoptimes/'+item+'').on('value', function(stoptimesSnapA) {
+                fb.child('trips/'+stoptimesSnapA.val().trip_id+'').on('value', function(tripsSnapB) {
+                fb.child('stoptimes/'+anostation[1]+'').on('value', function(stoptimesSnapB) {
+                  if(tripsSnapB.val().direction_id == '1' && stoptimesSnapB.val().drop_off_type == '0' && stoptimesSnapA.val().departure_time < stoptimesSnapB.val().arrival_time){
+                 //tID += stoptimesSnapA.val().trip_id;
+                console.log(stoptimesSnapA.val().trip_id);
+                arrayTID.push(tripsSnapB.val().trip_id);
+  
+                 tripResults.innerHTML +=  '<paper-material elevation="1" class="train"><div><div class="train-pic"><iron-image alt="The train logo." src="./images/1.jpg"></iron-image></div><div class="train-info"><h1>'+stoptimesSnapA.val().trip_id+'<br>'+someStation+' ~ '+anostation+'</h1><p>Redistributions of source code must retain the above copyrightnotice, this list of conditions and the following disclaimer.</p> <span><iron-icon icon="schedule"></iron-icon> '+stoptimesSnapA.val().departure_time+'</span> ~ <span><iron-icon icon="schedule"></iron-icon> '+stoptimesSnapB.val().arrival_time+'</span></div> <div class="train-price"><div> Price $ 20</div> <paper-button raised class="custom green">Book</paper-button></div><div class="clearfix"></div></div></paper-material>';
+              }
+            });                                                                                                                                                                                                    
+             });
+              });
+
+            }
+          );
+        
+  /*  for (i = 0; i < someStation.length; i++) {
+        //output += someStation[i] + anostation[i];
+        var fb = new Firebase("https://transappx.firebaseio.com/");
+        fb.child('stoptimes/'+someStation[i]+'').on('value', function(stoptimesSnapA) {
+        //fb.child('stoptimes/'+anostation[i]+'').on('value', function(stoptimesSnapB) {
+         tID += stoptimesSnapA.val().trip_id;
+        console.log(stoptimesSnapB.val().trip_id);
+       //});
+      });
+        console.log(tID);
+       fb.child('stoptimes/'+anostation[i]+'').on('value', function(stoptimesSnapB) {
+         //var tID = stoptimesSnapA.val().trip_id;
+        console.log(stoptimesSnapB.val().trip_id);
+       });
+    }
+
+
+   /* var i;
+    for (i = 0, i < someStation.length; i += 1) {
+        var fb = new Firebase("https://transappx.firebaseio.com/");
+        fb.child('stoptimes/'+someStation[i]+'').once('value', function(stoptimesSnapA) {
+         fb.child('stoptimes/'+anostation[i]+'').once('value', function(stoptimesSnapB) {
+        console.log(stoptimesSnapA.val().trip_id);
+        console.log(stoptimesSnapB.val().trip_id);
+      });
+      });
+    }
+
+
+    /*if(Array.isArray(anostation)){
+      console.log ('yey');
+    }
+    function isInArray(value, array) {
+      return array.indexOf(value) > -1;
+    }
+    //isInArray(1, [1,2,3]); // true
+    var fireBaseRef = new Firebase("https://transappx.firebaseio.com/trips");
+          fireBaseRef.once("value", function(tripsnapshot) {
+          tripsnapshot.forEach(function(childSnapshot) {
+            var key = childSnapshot.key();
+           // var childData = childSnapshot.val();
+            var tripID = childSnapshot.val().trip_id;
+           //console.log(tripID);
+           var fb = new Firebase("https://transappx.firebaseio.com/");
+           fb.child('stoptimes/70011').once('value', function(stoptimesSnap) {
+               fb.child('stoptimes/70262').once('value', function(stoptimesSnap1) {
+                if(childSnapshot.val().trip_id == stoptimesSnap.val().trip_id && stoptimesSnap.val().stop_id == someStation && stoptimesSnap.val().pickup_type == 0){
+                  if(isInArray('70262', anostation) || isInArray('70261', anostation)){
+                  console.log(stoptimesSnap1.val().trip_id);
+                  var ref = new Firebase("https://transappx.firebaseio.com/stoptimes");
+                  ref.orderByChild("trip_id").equalTo(stoptimesSnap1.val().trip_id).on("child_added", function(snapshot) {
+                    if(stoptimesSnap1.val().drop_off_type == 0 && stoptimesSnap.val().pickup_type == 0){
+                     console.log(snapshot.val().trip_headsign);
+                     tripResults.innerHTML +=  '<paper-material elevation="1" class="train"><div><div class="train-pic"><iron-image alt="The train logo." src="./images/1.jpg"></iron-image></div><div class="train-info"><h1>'+stoptimesSnap.val().trip_id+'<br>'+someStation+' ~ '+anostation+'</h1><p>Redistributions of source code must retain the above copyrightnotice, this list of conditions and the following disclaimer.</p> <span><iron-icon icon="schedule"></iron-icon> '+stoptimesSnap.val().departure_time+'</span> ~ <span><iron-icon icon="schedule"></iron-icon> '+stoptimesSnap1.val().arrival_time+'</span></div> <div class="train-price"><div> Price $ 20</div> <paper-button raised class="custom green">Book</paper-button></div><div class="clearfix"></div></div></paper-material>';
+                    }
+                  });
+                }
+              }
+               });
+             });
+
+      });
+    });
+
+   /* var fb = new Firebase("https://transappx.firebaseio.com/");
+     var ref = new Firebase("https://transappx.firebaseio.com/trips");
+        fb.child('stoptimes/70012').once('value', function(tripSnap) {
+           fb.child('stoptimes/70012').once('value', function(stoptimesSnap) {
+               fb.child('stoptimes/70262').once('value', function(stoptimesSnap1) {
+      if(stoptimesSnap.val().pickup_type == 0){
+       console.log(tripSnap.val().trip_id);
+      // tripResults.innerHTML +=  '<paper-material elevation="1" class="train"><div><div class="train-pic"><iron-image alt="The train logo." src="./images/1.jpg"></iron-image></div><div class="train-info"><h1>'+stoptimesSnap.val().trip_id+'<br>'+someStation+' ~ '+anostation+'</h1><p>Redistributions of source code must retain the above copyrightnotice, this list of conditions and the following disclaimer.</p> <span><iron-icon icon="schedule"></iron-icon> '+stoptimesSnap.val().departure_time+'</span> ~ <span><iron-icon icon="schedule"></iron-icon> '+stoptimesSnap.val().arrival_time+'</span></div> <div class="train-price"><div> Price $ 20</div> <paper-button raised class="custom green">Book</paper-button></div><div class="clearfix"></div></div></paper-material>';
+      }
+    });
+   });
+    });
+    /*
     var someStation = '70012';
     var anostation = '70262';
     var fb = new Firebase("https://transappx.firebaseio.com/");
