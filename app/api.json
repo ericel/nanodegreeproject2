@@ -50,5 +50,31 @@
     "arrival_name": "SAN ANTONIO",
     "train_name": ["Ma local", "Shuttle Mak", "Bueast tar", "Shuttle Mak", "8892 tar"],
     "zone_id": 3329
+  },
+  {
+    "stop_ids": ["70021", "70022"],
+    "stop_name": "22ND ST STATION",
+    "stop_lat": 37.757692,
+    "stop_lon": -122.392318,
+    "trip_id": 105,
+    "departure_time": "12:00:00",
+    "arrival_time": "12:08:00",
+    "next_train": 480,
+    "arrival_name": "SAN FRANCISCO",
+    "train_name": ["MVP local", "Shuttle Mak", "Bueast tar", "Shuttle Mak", "8892 tar"],
+    "zone_id": 3329
+  },
+  {
+   "stop_ids": ["70021", "70022"],
+    "stop_name": "ATHERTON STATION",
+    "stop_lat": 37.464458,
+    "stop_lon": -122.198152,
+    "trip_id": 106,
+    "departure_time": "12:00:00",
+    "arrival_time": "13:01:00",
+    "next_train": 3660,
+    "arrival_name": "SAN FRANCISCO",
+    "train_name": ["678 local", "Shuttle Mak", "Bueast tar", "Shuttle Mak", "8892 tar"],
+    "zone_id": 3329
   }
   ]

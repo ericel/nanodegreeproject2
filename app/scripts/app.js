@@ -130,12 +130,12 @@ function transappstops(arr) {
     var str,
     strArr ;
     var i;
+
     for(i = 0; i < arr.length; i++) {
        str += '<option value="'+arr[i].stop_name.replace('Caltrain','')+'" />';
        strArr += '<option value="'+arr[i].arrival_name.replace('Caltrain','')+'" />';
     }
-    //document.getElementById("id01").innerHTML = out;
-    //console.log(str);
+
     var s_list=document.getElementById("slist");
     var a_list=document.getElementById("alist");
     s_list.innerHTML = str;
