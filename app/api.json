@@ -1,0 +1,54 @@
+[
+  {
+    "stop_ids": ["70021", "70022"],
+    "stop_name": "22ND ST STATION",
+    "stop_lat": 37.757692,
+    "stop_lon": -122.392318,
+    "trip_id": 101,
+    "departure_time": "08:20:00",
+    "arrival_time": "09:13:00",
+    "next_train": 1200,
+    "arrival_name": "ATHERTON STATION",
+    "train_name": ["Sbs local", "Shuttle Mak", "Beast tar", "Shuttle Mak", "Beast tar"],
+    "zone_id": 3329
+  },
+  {
+    "stop_ids": ["70021", "70022"],
+    "stop_name": "ATHERTON STATION",
+    "stop_lat": 37.464458,
+    "stop_lon": -122.198152,
+    "trip_id": 102,
+    "departure_time": "07:37:00",
+    "arrival_time": "08:30:00",
+    "next_train": 600,
+    "arrival_name": "22ND ST STATION",
+    "train_name": ["Dbs local", "Shuttle Mak", "Bird Star", "Shuttle Mak", "Bird Star"],
+    "zone_id": 3329
+  },
+  {
+    "stop_ids": ["70021", "70022"],
+    "stop_name": "BAYSHORE STATION",
+    "stop_lat": 37.711202,
+    "stop_lon": -122.401366,
+    "trip_id": 103,
+    "departure_time": "12:31:00",
+    "arrival_time": "12:41:00",
+    "next_train": 900,
+    "arrival_name": "SAN FRANCISCO",
+    "train_name": ["108 local", "Shuttle Mak", "Frontier tar", "Shuttle Mak", "Frontier tar"],
+    "zone_id": 3329
+  },
+  {
+    "stop_ids": ["70021", "70022"],
+    "stop_name": "SAN FRANCISCO",
+    "stop_lat": 37.776541,
+    "stop_lon": -122.395406,
+    "trip_id": 104,
+    "departure_time": "12:00:00",
+    "arrival_time": "01:06:00",
+    "next_train": 1800,
+    "arrival_name": "SAN ANTONIO",
+    "train_name": ["Ma local", "Shuttle Mak", "Bueast tar", "Shuttle Mak", "8892 tar"],
+    "zone_id": 3329
+  }
+  ]

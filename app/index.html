@@ -123,154 +123,43 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
           
             <section data-route="home" tabindex="-1">
-            <div class="header-search">
+          
+             
+      <div class="header-search">
             <div class="overlay-div">
               <h1 class="page-title">FIND YOUR TRAIN </h1>
-            <form>
-            <paper-input label=" Start Sation" type="text" id="fromStation" list="slist" autofocus>
+            <form is="iron-form" id="tripForm">
+            <paper-input label=" Start Sation" type="text" id="fromStation" required list="slist" autofocus value="22ND ST STATION">
                   <iron-icon prefix icon="room"></iron-icon>
+                  
                   <paper-icon-button suffix onclick="clearInputfrom()" icon="clear" alt="clear" title="clear">
                   </paper-icon-button>
                 </paper-input>
-                <paper-input label=" Stop Station" id="toStation" list="slist">
+                <paper-input label=" Stop Station" id="toStation" required list="alist" value="ATHERTON STATION">
                    <iron-icon prefix icon="room"></iron-icon>
                   <paper-icon-button suffix onclick="clearInput()" icon="clear" alt="clear" title="clear">
                   </paper-icon-button>
                 </paper-input>
                  <datalist id="slist">
+
+                     
+                 </datalist>
+                   <datalist id="alist">
+
                      
                  </datalist>
 
-                <div class="pull-right"><paper-button raised class="custom indigo">Find A Train</paper-button></div>
+                <div class="pull-right"><paper-button raised class="custom indigo" id="idTrips"><paper-spinner id="spinner" hidden></paper-spinner> Find A Train</paper-button></div>
               </form>
               </div>
               </div>
-               <table style="width:100%">
-               <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>   
-                <th>Points</th>
-              </tr>
-                </table>
+              
            
               <div id="results"></div>
               
-              <paper-material elevation="1" class="train">
-              <div>
-                <div class="train-pic">
-                   <iron-image alt="The train logo." src="./images/1.jpg"></iron-image>
-                </div>
-                <div class="train-info">
-                   <h1>This is another train.</h1>
-                   <p>Redistributions of source code must retain the above copyright
-                notice, this list of conditions and the following disclaimer.</p>
-                   <span><iron-icon icon="schedule"></iron-icon> 2015-01-02T11:42:13</span>
-                    ~ 
-                   <span><iron-icon icon="schedule"></iron-icon> 2015-01-02T11:42:13</span>
-                </div>
-                 <div class="train-price">
-                    <div>
-                       Price
-                       $ 20
-                    </div>
-                    <paper-button raised class="custom green">Book</paper-button>
-                 </div>
-                 <div class="clearfix"></div>
-                 </div>
-              </paper-material>
-              <paper-material elevation="1" class="train">
-              <div>
-                <div class="train-pic">
-                   <iron-image alt="The train logo." src="./images/1.jpg"></iron-image>
-                </div>
-                <div class="train-info">
-                   <h1>This is another train.</h1>
-                   <p>Redistributions of source code must retain the above copyright
-                notice, this list of conditions and the following disclaimer.</p>
-                   <span><iron-icon icon="schedule"></iron-icon> 2015-01-02T11:42:13</span>
-                    ~ 
-                   <span><iron-icon icon="schedule"></iron-icon> 2015-01-02T11:42:13</span>
-                </div>
-                 <div class="train-price">
-                    <div>
-                       Price
-                       $ 20
-                    </div>
-                    <paper-button raised class="custom green">Book</paper-button>
-                 </div>
-                 <div class="clearfix"></div>
-                 </div>
-              </paper-material>
-              <paper-material elevation="1" class="train">
-              <div>
-                <div class="train-pic">
-                   <iron-image alt="The train logo." src="./images/1.jpg"></iron-image>
-                </div>
-                <div class="train-info">
-                   <h1>This is another train.</h1>
-                   <p>Redistributions of source code must retain the above copyright
-                notice, this list of conditions and the following disclaimer.</p>
-                   <span><iron-icon icon="schedule"></iron-icon> 2015-01-02T11:42:13</span>
-                    ~ 
-                   <span><iron-icon icon="schedule"></iron-icon> 2015-01-02T11:42:13</span>
-                </div>
-                 <div class="train-price">
-                    <div>
-                       Price
-                       $ 20
-                    </div>
-                    <paper-button raised class="custom green">Book</paper-button>
-                 </div>
-                 <div class="clearfix"></div>
-                 </div>
-              </paper-material>
-              <paper-material elevation="1" class="train">
-              <div>
-                <div class="train-pic">
-                   <iron-image alt="The train logo." src="./images/1.jpg"></iron-image>
-                </div>
-                <div class="train-info">
-                   <h1>This is another train.</h1>
-                   <p>Redistributions of source code must retain the above copyright
-                notice, this list of conditions and the following disclaimer.</p>
-                   <span><iron-icon icon="schedule"></iron-icon> 2015-01-02T11:42:13</span>
-                    ~ 
-                   <span><iron-icon icon="schedule"></iron-icon> 2015-01-02T11:42:13</span>
-                </div>
-                 <div class="train-price">
-                    <div>
-                       Price
-                       $ 20
-                    </div>
-                    <paper-button raised class="custom green">Book</paper-button>
-                 </div>
-                 <div class="clearfix"></div>
-                 </div>
-              </paper-material>
-              <paper-material elevation="1" class="train">
-              <div>
-                <div class="train-pic">
-                   <iron-image alt="The train logo." src="./images/1.jpg"></iron-image>
-                </div>
-                <div class="train-info">
-                   <h1>This is another train.</h1>
-                   <p>Redistributions of source code must retain the above copyright
-                notice, this list of conditions and the following disclaimer.</p>
-                   <span><iron-icon icon="schedule"></iron-icon> 2015-01-02T11:42:13</span>
-                    ~ 
-                   <span><iron-icon icon="schedule"></iron-icon> 2015-01-02T11:42:13</span>
-                </div>
-                 <div class="train-price">
-                    <div>
-                       Price
-                       $ 20
-                    </div>
-                    <paper-button raised class="custom green">Book</paper-button>
-                 </div>
-                 <div class="clearfix"></div>
-                 </div>
-              </paper-material>
-              
+             
+
+        
             </section>
 
             <section data-route="users" tabindex="-1">
@@ -334,6 +223,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
   <!-- endbuild-->
+
   <script>
     function clearInput() {
       document.getElementById('toStation').value = '';

@@ -69,435 +69,155 @@ function get(url) {
 
   // See https://github.com/Polymer/polymer/issues/1381
 window.addEventListener('WebComponentsReady', function() {
-     var tripResults = document.querySelector('#results');
-    // Get Train Stops to datalist
-    get('../data/stops.txt').then(function(response) {
+     
+    /* Get Train Stops to datalist
+    get('../gtfs/stops.txt').then(function(response) {
       //console.log("Success!", response.split(/(\r\n|\n)/));
       var stop_list = response.split(/(\r\n|\n)/);
       var re = /,/;
       var headers = stop_list.shift().split(re);
-      var index = headers.indexOf("stop_name");
+      var index = headers.indexOf("stop_name"); 
+      var indexID = headers.indexOf("stop_id");
       //Removing [index] at return val.split(re)[index]; should return an array of arrays of each split value
+      
       var res = stop_list.map(function(val, key) {
-        return val.split(re)[index];
-      }).filter(Boolean);
+          return val.split(re)[index];
+          //return val.split(re)[index] ? val.split(re)[index] + ',' + val.split(re)[indexID] : '';
+        })
+        .filter(function(value, index, self) { 
+          return self.indexOf(value) === index;
+        });
 
        var str = '';
         var i;
-        for (i = 0; i < res.length; i++) {
-           str += '<option value="'+res[i]+'" />';
+        for (i = 1; i < res.length; i++) {
+           str += '<option value="'+res[i].replace('Caltrain','')+'" />';
         }
         var s_list=document.getElementById("slist");
         s_list.innerHTML = str;
     }, function(error) {
       console.error("Failed!", error);
-    });
+    });*/
 
+var fromStation =document.getElementById("fromStation");
+var toStation =document.getElementById("toStation");
+var result = document.getElementById("results");
+var xmlhttp = new XMLHttpRequest();
+var url = "api.json";
 
-/*function doRoutes(data) {
-      var tripstr = '';
-      var routes = '{ "routes": '+JSON.stringify(data, null, 4)+' }';
-      var obj = JSON.parse(routes);
-    //console.log(obj);
-     
-
-     var i;
-    var out = "";
-    var fireBaseRefInfo = new Firebase("https://transappx.firebaseio.com");
-    var routesRef = fireBaseRefInfo.child("routes");
-        routesRef.set(null);
-    for(i = 0;i<obj.routes.length;i++) {
-        out +=  obj.routes[i].route_long_name;
-
-        if(obj.routes[i].route_id != ''){
-
-        routesRef.child(obj.routes[i].route_id).set({
-              route_id: obj.routes[i].route_id,
-              route_short_name: obj.routes[i].route_short_name,
-              route_long_name: obj.routes[i].route_long_name,
-              route_type: obj.routes[i].route_type,
-              route_color: obj.routes[i].route_color
-            }, function(error) {
-            if (error) {
-              alert("Data could not be saved." + error);
-              //estatus.innerHTML ='<div class="error">Data could not be saved '+error+'</div>';
-            } else {
-              app.$.toast.text = 'Routes Created Successfully!';
-              app.$.toast.show();
-      }
-    });
-
-
-      }
-
-
-    }
-    //tripResults.innerHTML = out; 
-            
-    }
-
-    function parseRoutes(url, callBack) {
-        Papa.parse(url, {
-            download: true,
-            dynamicTyping: true,
-            header: true,
-            complete: function(results) {
-                callBack(results.data);
-            }
-        });
-    }
-
-    parseRoutes("../data/routes.txt", doRoutes);
-
-     function doTrips(data) {
-      var tripstr = '';
-      var trips = '{ "trips": '+JSON.stringify(data, null, 4)+' }';
-      var obj = JSON.parse(trips);
-  
-
-    
-    var fireBaseRefInfo = new Firebase("https://transappx.firebaseio.com");
-    var tripsRef = fireBaseRefInfo.child("trips");
-        tripsRef.set(null);
-    var i;
-    var out = "";
-    for(i = 0;i<obj.trips.length;i++) {
-        out +=  obj.trips[i].trip_id;
-
-
-        if(obj.trips[i].route_id != ''){
-        tripsRef.child(obj.trips[i].trip_id).set({
-              trip_id: obj.trips[i].trip_id,
-              route_id: obj.trips[i].route_id,
-              service_id: obj.trips[i].service_id,
-              trip_headsign: obj.trips[i].trip_headsign,
-              trip_short_name: obj.trips[i].trip_short_name,
-              direction_id: obj.trips[i].direction_id,
-              shape_id: obj.trips[i].shape_id,
-              wheelchair_accessible: obj.trips[i].wheelchair_accessible,
-              bikes_allowed: obj.trips[i].bikes_allowed
-            }, function(error) {
-            if (error) {
-              alert("Data could not be saved." + error);
-              //estatus.innerHTML ='<div class="error">Data could not be saved '+error+'</div>';
-            } else {
-              app.$.toast.text = 'trips Created Successfully!';
-              app.$.toast.show();
-          }
-        });
-
-
-      }
-
-    }
-    //tripResults.innerHTML = out; 
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var transapp = JSON.parse(xmlhttp.responseText);
+        transappstops(transapp);
+        runsearch(transapp);
+    fromStation.addEventListener('change', function()
+    {
       
-    }
-
-    function parseTrips(url, callBack) {
-        Papa.parse(url, {
-            download: true,
-            dynamicTyping: true,
-            header: true,
-            complete: function(results) {
-
-                callBack(results.data);
-
-            }
-        });
-    }
-
-    parseTrips("../data/trips.txt", doTrips);
-
-   
-
-function doStops(data) {
-      var stops = '{ "stops": '+JSON.stringify(data, null, 4)+' }';
-      var obj = JSON.parse(stops);
-
-       var fireBaseRefInfo = new Firebase("https://transappx.firebaseio.com");
-        var stopsRef = fireBaseRefInfo.child("stops");
-            stopsRef.set(null);
-        var i;
-        var out = "";
-        for(i = 0;i<obj.stops.length;i++) {
-            out +=  obj.stops[i].trip_id;
-        if(obj.stops[i].stop_id != ''){
-    
-        stopsRef.child(obj.stops[i].stop_id).set({
-              stop_id: obj.stops[i].stop_id,
-              stop_code: obj.stops[i].stop_code,
-              stop_name: obj.stops[i].stop_name,
-              stop_lat: obj.stops[i].stop_lat,
-              stop_lon: obj.stops[i].stop_lon,
-              location_type: obj.stops[i].zone_id,
-              stop_url: obj.stops[i].stop_url,
-              location_type: obj.stops[i].location_type,
-              parent_station: obj.stops[i].parent_station,
-              platform_code: obj.stops[i].platform_code,
-              wheelchair_boarding: obj.stops[i].wheelchair_boarding
-            }, function(error) {
-            if (error) {
-              alert("Data could not be saved." + error);
-              //estatus.innerHTML ='<div class="error">Data could not be saved '+error+'</div>';
-            } else {
-              app.$.toast.text = 'Stops Created Successfully!';
-              app.$.toast.show();
-          }
-        });
-
-
-        }
-
-      }
-    }
-     function parseStops(url, callBack) {
-        Papa.parse(url, {
-            download: true,
-            dynamicTyping: true,
-            header: true,
-            complete: function(results) {
-
-                callBack(results.data);
-
-            }
-        });
-    }
-    parseStops("../data/stops.txt", doStops);
-
-
- function doStopTimes(data) {
-      var stoptimes = '{ "stoptimes": '+JSON.stringify(data, null, 4)+' }';
-      var obj = JSON.parse(stoptimes);
-
-       var fireBaseRefInfo = new Firebase("https://transappx.firebaseio.com");
-        var stoptimesRef = fireBaseRefInfo.child("stoptimes");
-            stoptimesRef.set(null);
-        var i;
-        var out = "";
-        for(i = 0;i<obj.stoptimes.length;i++) {
-            out +=  obj.stoptimes[i].trip_id;
-        if(obj.stoptimes[i].trip_id != ''){
-        stoptimesRef.child(obj.stoptimes[i].stop_id).set({
-              trip_id: obj.stoptimes[i].trip_id,
-              arrival_time: obj.stoptimes[i].arrival_time,
-              departure_time: obj.stoptimes[i].departure_time,
-              stop_id: obj.stoptimes[i].stop_id,
-              stop_sequence: obj.stoptimes[i].stop_sequence,
-              pickup_type: obj.stoptimes[i].pickup_type,
-              drop_off_type: obj.stoptimes[i].drop_off_type
-            }, function(error) {
-            if (error) {
-              alert("Data could not be saved." + error);
-              //estatus.innerHTML ='<div class="error">Data could not be saved '+error+'</div>';
-            } else {
-              app.$.toast.text = 'Stoptimes Created Successfully!';
-              app.$.toast.show();
-          }
-        });
-
-
-        }
-
-      }
-    }
-     function parseStopTimes(url, callBack) {
-        Papa.parse(url, {
-            download: true,
-            dynamicTyping: true,
-            header: true,
-            complete: function(results) {
-
-                callBack(results.data);
-
-            }
-        });
-    }
-    parseStopTimes("../data/stop_times.txt", doStopTimes);
-
-    SELECT t.*, st1.*, st2.*
- FROM trips t, stop_times st1, stop_times st2
- WHERE st1.trip_id = t.trip_id
- AND st2.trip_id = t.trip_id
- AND st1.stop_id = '6665'
- AND st2.stop_id IN ('6670', '101484')
- AND t.service_id IN ('12', '874', '4304', '7003')
- AND st1.departure_time >= '13:00:00'
- AND st1.pickup_type = 0
- AND st2.drop_off_type = 0
- AND st1.departure_time < st2.arrival_time
- ORDER BY st1.departure_time;
-
- SELECT * FROM stop_times
- WHERE stop_id = '6665'
- AND departure_time >= '13:00:00'
- AND pickup_type = 0
- ORDER BY departure_time;
-    */
-    // get data
-    
-    var arrayTID = [];
-    var someStation = ['70011', '70012','70261', '70262'],
-        anostation = ['70261', '70262'],
-        tID,
-        i;
-        someStation.forEach(
-            function(item){
-               var fb = new Firebase("https://transappx.firebaseio.com/");
-                fb.child('stoptimes/'+item+'').on('value', function(stoptimesSnapA) {
-                fb.child('trips/'+stoptimesSnapA.val().trip_id+'').on('value', function(tripsSnapB) {
-                fb.child('stoptimes/'+anostation[1]+'').on('value', function(stoptimesSnapB) {
-                  if(tripsSnapB.val().direction_id == '1' && stoptimesSnapB.val().drop_off_type == '0' && stoptimesSnapA.val().departure_time < stoptimesSnapB.val().arrival_time){
-                 //tID += stoptimesSnapA.val().trip_id;
-                console.log(stoptimesSnapA.val().trip_id);
-                arrayTID.push(tripsSnapB.val().trip_id);
-  
-                 tripResults.innerHTML +=  '<paper-material elevation="1" class="train"><div><div class="train-pic"><iron-image alt="The train logo." src="./images/1.jpg"></iron-image></div><div class="train-info"><h1>'+stoptimesSnapA.val().trip_id+'<br>'+someStation+' ~ '+anostation+'</h1><p>Redistributions of source code must retain the above copyrightnotice, this list of conditions and the following disclaimer.</p> <span><iron-icon icon="schedule"></iron-icon> '+stoptimesSnapA.val().departure_time+'</span> ~ <span><iron-icon icon="schedule"></iron-icon> '+stoptimesSnapB.val().arrival_time+'</span></div> <div class="train-price"><div> Price $ 20</div> <paper-button raised class="custom green">Book</paper-button></div><div class="clearfix"></div></div></paper-material>';
-              }
-            });                                                                                                                                                                                                    
-             });
-              });
-
-            }
-          );
+        runsearch(transapp);
+    });
+    toStation.addEventListener('change', function()
+    {
+      runsearch(transapp);
         
-  /*  for (i = 0; i < someStation.length; i++) {
-        //output += someStation[i] + anostation[i];
-        var fb = new Firebase("https://transappx.firebaseio.com/");
-        fb.child('stoptimes/'+someStation[i]+'').on('value', function(stoptimesSnapA) {
-        //fb.child('stoptimes/'+anostation[i]+'').on('value', function(stoptimesSnapB) {
-         tID += stoptimesSnapA.val().trip_id;
-        console.log(stoptimesSnapB.val().trip_id);
-       //});
+    });
+    }
+    
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function transappstops(arr) {
+    var str,
+    strArr ;
+    var i;
+    for(i = 0; i < arr.length; i++) {
+       str += '<option value="'+arr[i].stop_name.replace('Caltrain','')+'" />';
+       strArr += '<option value="'+arr[i].arrival_name.replace('Caltrain','')+'" />';
+    }
+    //document.getElementById("id01").innerHTML = out;
+    //console.log(str);
+    var s_list=document.getElementById("slist");
+    var a_list=document.getElementById("alist");
+    s_list.innerHTML = str;
+    a_list.innerHTML = strArr;
+}
+
+function timeToSeconds(hms){
+       var a = hms.split(':'); // split it at the colons
+
+       // minutes are worth 60 seconds. Hours are worth 60 minutes.
+       var seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]); 
+       return seconds;
+     }
+function secondstotime(secs)
+{
+    var t = new Date(1970,0,1);
+    t.setSeconds(secs);
+    var s = t.toTimeString().substr(0,8);
+    if(secs > 86399)
+      s = Math.floor((t - Date.parse("1/1/70")) / 3600000) + s.substr(2);
+    return s;
+}
+
+function runsearch(array){
+   var fromStationVal = document.getElementById("fromStation").value;
+      var toStationVal = document.getElementById("toStation").value;
+     var apijson = array;
+      var filtered =  apijson.filter(function(item) {
+        return item.stop_name === fromStationVal && item.arrival_name === toStationVal;
       });
-        console.log(tID);
-       fb.child('stoptimes/'+anostation[i]+'').on('value', function(stoptimesSnapB) {
-         //var tID = stoptimesSnapA.val().trip_id;
-        console.log(stoptimesSnapB.val().trip_id);
-       });
+
+  
+   
+     
+   try {
+      var d = new Date(); // for now
+      var timeNow = d.getHours()+ ':'  +d.getMinutes()+ ':' +d.getSeconds();
+      var timenext = timeToSeconds(timeNow);
+      timenext = timenext + 900;
+
+    
+      var arrtime = timeToSeconds(filtered[0].arrival_time);
+      var deptime = timeToSeconds(filtered[0].departure_time);
+      var timeDiff = arrtime - deptime;
+     
+      var nexttraintime = secondstotime(timenext),
+          arrnexttraintime = secondstotime(timenext + timeDiff);
+
+
+      
+      var timeDiffmin = Math.floor(timeDiff / 60) + "mins";
+      
+       var i;
+    var res = "";
+    for (i = 0; i < 5; i++) {
+        if(i === 1){
+           timenext = timenext + filtered[0].next_train;
+
+        } else if(i === 2){
+           timenext = timenext + filtered[0].next_train * i;
+        } else if( i === 3) {
+           timenext = timenext + filtered[0].next_train * i;
+        }  else if( i === 4) {
+           timenext = timenext + filtered[0].next_train * i;
+        } else {
+          //console.log(timenext);
+        }
+      res += ' <paper-material elevation="1" class="train"><div><div class="train-pic"></div><div class="train-info"><div class="timetrasin"><span><iron-icon icon="schedule"></iron-icon> '+secondstotime(timenext).replace(/:\d\d([ ap]|$)/,'$1')+'</span> ~ '+secondstotime(timenext + timeDiff).replace(/:\d\d([ ap]|$)/,'$1')+'</span></div><p>Duration: '+timeDiffmin+'</p><h1> '+filtered[0].train_name[i]+'</h1></div> </div><div class="clearfix"></div> </div>  </paper-material>';  
+
+    }
+     result.innerHTML = res;
+    
+    } catch(e) {
+       result.innerHTML ='<paper-material elevation="1" class="no-train">No Trains Running this route</paper-material>';
+       console.log('error finding trains');
     }
 
-
-   /* var i;
-    for (i = 0, i < someStation.length; i += 1) {
-        var fb = new Firebase("https://transappx.firebaseio.com/");
-        fb.child('stoptimes/'+someStation[i]+'').once('value', function(stoptimesSnapA) {
-         fb.child('stoptimes/'+anostation[i]+'').once('value', function(stoptimesSnapB) {
-        console.log(stoptimesSnapA.val().trip_id);
-        console.log(stoptimesSnapB.val().trip_id);
-      });
-      });
+ 
     }
-
-
-    /*if(Array.isArray(anostation)){
-      console.log ('yey');
-    }
-    function isInArray(value, array) {
-      return array.indexOf(value) > -1;
-    }
-    //isInArray(1, [1,2,3]); // true
-    var fireBaseRef = new Firebase("https://transappx.firebaseio.com/trips");
-          fireBaseRef.once("value", function(tripsnapshot) {
-          tripsnapshot.forEach(function(childSnapshot) {
-            var key = childSnapshot.key();
-           // var childData = childSnapshot.val();
-            var tripID = childSnapshot.val().trip_id;
-           //console.log(tripID);
-           var fb = new Firebase("https://transappx.firebaseio.com/");
-           fb.child('stoptimes/70011').once('value', function(stoptimesSnap) {
-               fb.child('stoptimes/70262').once('value', function(stoptimesSnap1) {
-                if(childSnapshot.val().trip_id == stoptimesSnap.val().trip_id && stoptimesSnap.val().stop_id == someStation && stoptimesSnap.val().pickup_type == 0){
-                  if(isInArray('70262', anostation) || isInArray('70261', anostation)){
-                  console.log(stoptimesSnap1.val().trip_id);
-                  var ref = new Firebase("https://transappx.firebaseio.com/stoptimes");
-                  ref.orderByChild("trip_id").equalTo(stoptimesSnap1.val().trip_id).on("child_added", function(snapshot) {
-                    if(stoptimesSnap1.val().drop_off_type == 0 && stoptimesSnap.val().pickup_type == 0){
-                     console.log(snapshot.val().trip_headsign);
-                     tripResults.innerHTML +=  '<paper-material elevation="1" class="train"><div><div class="train-pic"><iron-image alt="The train logo." src="./images/1.jpg"></iron-image></div><div class="train-info"><h1>'+stoptimesSnap.val().trip_id+'<br>'+someStation+' ~ '+anostation+'</h1><p>Redistributions of source code must retain the above copyrightnotice, this list of conditions and the following disclaimer.</p> <span><iron-icon icon="schedule"></iron-icon> '+stoptimesSnap.val().departure_time+'</span> ~ <span><iron-icon icon="schedule"></iron-icon> '+stoptimesSnap1.val().arrival_time+'</span></div> <div class="train-price"><div> Price $ 20</div> <paper-button raised class="custom green">Book</paper-button></div><div class="clearfix"></div></div></paper-material>';
-                    }
-                  });
-                }
-              }
-               });
-             });
-
-      });
-    });
-
-   /* var fb = new Firebase("https://transappx.firebaseio.com/");
-     var ref = new Firebase("https://transappx.firebaseio.com/trips");
-        fb.child('stoptimes/70012').once('value', function(tripSnap) {
-           fb.child('stoptimes/70012').once('value', function(stoptimesSnap) {
-               fb.child('stoptimes/70262').once('value', function(stoptimesSnap1) {
-      if(stoptimesSnap.val().pickup_type == 0){
-       console.log(tripSnap.val().trip_id);
-      // tripResults.innerHTML +=  '<paper-material elevation="1" class="train"><div><div class="train-pic"><iron-image alt="The train logo." src="./images/1.jpg"></iron-image></div><div class="train-info"><h1>'+stoptimesSnap.val().trip_id+'<br>'+someStation+' ~ '+anostation+'</h1><p>Redistributions of source code must retain the above copyrightnotice, this list of conditions and the following disclaimer.</p> <span><iron-icon icon="schedule"></iron-icon> '+stoptimesSnap.val().departure_time+'</span> ~ <span><iron-icon icon="schedule"></iron-icon> '+stoptimesSnap.val().arrival_time+'</span></div> <div class="train-price"><div> Price $ 20</div> <paper-button raised class="custom green">Book</paper-button></div><div class="clearfix"></div></div></paper-material>';
-      }
-    });
-   });
-    });
-    /*
-    var someStation = '70012';
-    var anostation = '70262';
-    var fb = new Firebase("https://transappx.firebaseio.com/");
-    fb.child('stoptimes/'+someStation+'').once('value', function(stoptimesSnap) {
-      fb.child('stoptimes/'+anostation+'').once('value', function(stoptimesSnap1) {
-      fb.child('trips/'+stoptimesSnap.val().trip_id+'').once('value', function(tripSnap) {
-      if(stoptimesSnap.val().trip_id != stoptimesSnap1.val().trip_id){
-        tripResults.innerHTML = 'No routes found';
-      } else {
-        console.log(stoptimesSnap.val().trip_id);
-       
-        var ref = new Firebase("https://transappx.firebaseio.com/trips");
-        ref.orderByChild("route_id").equalTo(tripSnap.val().route_id).on("child_added", function(snapshot) {
-         console.log(snapshot.key());
-         //snapshot.key().forEach(function(childSnapshot) {
-          
-              tripResults.innerHTML +=  '<paper-material elevation="1" class="train"><div><div class="train-pic"><iron-image alt="The train logo." src="./images/1.jpg"></iron-image></div><div class="train-info"><h1>'+snapshot.val().trip_id+'<br>'+someStation+' ~ '+anostation+'</h1><p>Redistributions of source code must retain the above copyrightnotice, this list of conditions and the following disclaimer.</p> <span><iron-icon icon="schedule"></iron-icon> '+stoptimesSnap.val().departure_time+'</span> ~ <span><iron-icon icon="schedule"></iron-icon> '+snapshot.val().arrival_time+'</span></div> <div class="train-price"><div> Price $ 20</div> <paper-button raised class="custom green">Book</paper-button></div><div class="clearfix"></div></div></paper-material>';
-         // });
-           
-        });
-      }
-        console.log(stoptimesSnap.val().trip_id);
-        //console.log(tripSnap.val().trip_id);
-        console.log(stoptimesSnap1.val().trip_id);
-     });
-    });
-    });
-   /* var fireStopTimes = new Firebase("https://transappx.firebaseio.com/stoptimes");
-    fireStopTimes.orderByChild("departure_time").limitToFirst(6).on("child_added", function(snapshot) 
-       {
-         
-  var fb = new Firebase("https://transappx.firebaseio.com/");
-  fb.child('stoptimes/'+snapshot.val().trip_id+'').once('value', function(stoptimesSnap) {
-     fb.child('trips/'+snapshot.val().trip_id+'').once('value', function(tripSnap) {
-      fb.child('routes/'+tripSnap.val().route_id+'').once('value', function(routesSnap) {
-        fb.child('stops/'+stoptimesSnap.val().stop_id+'').once('value', function(stopSnap) {
-         // extend function: https://gist.github.com/katowulf/6598238
-         console.log( stoptimesSnap.val(), tripSnap.val() );
-         tripResults.innerHTML += ' <paper-material elevation="1" class="train"><div><div class="train-pic"><iron-image alt="The train logo." src="./images/1.jpg"></iron-image></div><div class="train-info"><h1>'+routesSnap.val().route_long_name+'<br>'+tripSnap.val().trip_id+''+stopSnap.val().stop_name+' ~ '+tripSnap.val().trip_headsign+'</h1><p>Redistributions of source code must retain the above copyrightnotice, this list of conditions and the following disclaimer.</p> <span><iron-icon icon="schedule"></iron-icon> '+stoptimesSnap.val().departure_time+'</span> ~ <span><iron-icon icon="schedule"></iron-icon> '+stoptimesSnap.val().arrival_time+'</span></div> <div class="train-price"><div> Price $ 20</div> <paper-button raised class="custom green">Book</paper-button></div><div class="clearfix"></div></div></paper-material>';
-     });
-  });
-   });
-   });
-
-});*/
-
-  /*var refStopTimes = new Firebase("https://transappx.firebaseio.com/stoptimes");
-  refStopTimes.orderByChild("departure_time").limitToFirst(2).on("child_added", function(snapshot) {
-
-    console.log(snapshot.key() + " was " + snapshot.val().departure_time + " meters tall");
-    var fireTrips = new Firebase("https://transappx.firebaseio.com/trips");
-    fireTrips.orderByChild("trip_id").equalTo(snapshot.val().trip_id).on("child_added", function(snapshot) {
-      console.log(snapshot.val().trip_id);
-    });
-    tripResults.innerHTML = ' <paper-material elevation="1" class="train"><div><div class="train-pic"><iron-image alt="The train logo." src="./images/1.jpg"></iron-image></div><div class="train-info"><h1>This is another train. ~ '+snapshot.val().trip_headsign+'</h1><p>Redistributions of source code must retain the above copyrightnotice, this list of conditions and the following disclaimer.</p> <span><iron-icon icon="schedule"></iron-icon> '+snapshot.val().departure_time+'</span> ~ <span><iron-icon icon="schedule"></iron-icon> '+snapshot.val().arrival_time+'</span></div> <div class="train-price"><div> Price $ 20</div> <paper-button raised class="custom green">Book</paper-button></div><div class="clearfix"></div></div></paper-material>';
-  });*/
-
 
    //IndexedDB
-   var dbPromise = idb.open('tester', 1, function(upgradeDb) {
+ /*  var dbPromise = idb.open('tester', 1, function(upgradeDb) {
     var keyValStore = upgradeDb.createObjectStore('keyval');
     keyValStore.put(28, 'age');
    });
@@ -530,7 +250,7 @@ function doStops(data) {
    }).then(function(val) {
      console.log('Favorite Animal is:', val);
    })
- 
+ */
 });
 
 

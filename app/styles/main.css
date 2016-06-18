@@ -32,7 +32,7 @@ paper-button {
 .header-search{
 	width:100%;
 	background: #268DC6;
-	background: url('train.png');
+	background: url('../../images/train.png');
 	background-size: 100% 100%;
 	position: relative;
 }
@@ -70,4 +70,21 @@ img {
 }
 .tripper {
 	margin: 10px 0;
+}
+.time-next {
+	font-weight: bold;
+	font-size: 2em;
+}
+.timetrasin{
+	font-size: 2em;
+	color: #1AA822;
+
+}
+.train {
+	text-align: center;
+}
+.no-train {
+	font-size: 18px;
+	text-align: center;
+	color: #C82F2F;
 }
